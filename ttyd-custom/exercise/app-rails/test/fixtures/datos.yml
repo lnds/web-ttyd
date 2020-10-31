@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  codigo: 1
+  nombre: MyString
+  cuando: 2013-05-20 10:44:19
+
+two:
+  codigo: 1
+  nombre: MyString
+  cuando: 2013-05-20 10:44:19

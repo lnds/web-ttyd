@@ -1,0 +1,8 @@
+<h1>Home#index</h1>
+<p>Hola, haz un GET a las direcciones de arriba o copia y pega:</p>
+
+<pre>
+wrk <%= url_for :controller => :datos, :action => :lnds_create, :only_path => false %>
+wrk <%= url_for :controller => :datos, :action => :lnds_json_list, :only_path => false %>
+wrk <%= url_for :controller => :datos, :action => :lnds_list, :only_path => false %>
+</pre>

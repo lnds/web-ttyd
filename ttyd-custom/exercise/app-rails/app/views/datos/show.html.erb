@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Codigo:</b>
+  <%= @dato.codigo %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @dato.nombre %>
+</p>
+
+<p>
+  <b>Cuando:</b>
+  <%= @dato.cuando %>
+</p>
+
+
+<%= link_to 'Edit', edit_dato_path(@dato) %> |
+<%= link_to 'Back', datos_path %>

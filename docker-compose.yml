@@ -1,0 +1,50 @@
+version: '2.4'
+
+services:
+  edge:
+    image: traefik:1.7.7
+    command:
+      - "--entryPoints=Name:http Address::80 Redirect.EntryPoint:https"
+      - "--entryPoints=Name:https Address::443 TLS"
+      - "--defaultEntryPoints=https,http"
+      - "--acme.entryPoint=https"         # Uses LE certificates on the entrypoint "https" .
+      - "--acme.email=${YOUR_EMAIL}" # Specifies the contact email for the certificates.
+      - "--acme.storage=acme.json"        # Stores certificates in the file "acme.storage".
+      - "--acme.tlsChallenge=true"        # Uses TLS Challenge.
+      - "--acme.onHostRule=true"
+      - "--docker" # Tells Traefik to listen to docker
+    labels:
+      - "traefik.enable=false"
+    ports:
+      - "80:80"     # The HTTP port
+      - "443:443"   # The HTTPS port
+    volumes:
+      # To communicate with the Docker Engine
+      - /var/run/docker.sock:/var/run/docker.sock
+  ttyd:
+    build: ./ttyd-custom
+    user: ${CURRENT_ID}
+    container_name:
+      tty
+    environment:
+      - USER
+      - CREDENTIALS
+    env_file:
+      - .env
+    volumes:
+      - ./website:/usr/share/nginx/html
+      - ./media:/media
+      - ./exercise:/home/ttyd/exercise
+    labels:
+      - "traefik.frontend.rule=Host:${YOUR_DOMAIN};PathPrefixStrip:/ttyd"
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:${YOUR_DOMAIN};PathPrefixStrip:/web"
+      - "traefik.port=80"
+    volumes:
+      - ./website:/usr/share/nginx/html
+      - ./media:/media
