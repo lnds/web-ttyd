@@ -49,9 +49,9 @@ Luego crear un archivo `.env` a partir de `.env-sample`, creo que es bien claro 
 
 ### Nota Importante
 
-El archivo Dockerfile en `ttyd-custom` tiene definido en la ultima linea las credenciales que se usa para acceder al terminal, hoy tiene `USER:PASSWORD` esto hay que cambiarlo por las credenciales que quieras usar. 
+El archivo Dockerfile en `ttyd-custom` tiene definido en la última linea las credenciales que se usa para acceder al terminal, hoy tiene en duro el valor `USER:PASSWORD` esto hay que cambiarlo por las credenciales que quieras usar. 
 
-Esto es un bug de esta versión, pero no he tenido tiempo para revisarlo, si alguien puede aportar con esta corrección se lo agradezco, esto deberia tomarlo de una variable de ambiente.
+Esto es un bug de esta versión, esto deberia tomarlo de una variable de ambiente.
 
 ## Ejecución
 
@@ -59,9 +59,8 @@ Esto se debe colocar en un entorno que tenga docker-compose y ejecutar:
 
     $ docker-compose up --build -d
     
-Se debe configurar el archivo traefik.toml
 
-# Autoría y Usoo
+# Autoría y Uso
 
 Puedes usarlo en cualquier proyecto siempre que menciones al autor de este trabajo.
 
