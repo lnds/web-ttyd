@@ -4,6 +4,10 @@ Este es un ambiente que usa Traefik 1.7.7 para construir un entorno web donde pu
 
 Lo he usado en cursos de programación segura.
 
+ATENCION: Este repo contiene código inseguro a propósito en la carpeta exercises.
+
+Se agredece aportes a seguridad en la infraestructura. Gracias
+
 ## En qué consiste
 
 Esto permite construir un entorno web que se puede usar como laboratorio de clases.
