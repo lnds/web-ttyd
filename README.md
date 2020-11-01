@@ -6,6 +6,9 @@ Lo he usado en cursos de programación segura.
 
 ATENCION: Este repo contiene código inseguro a propósito en la carpeta exercises.
 
+NOTE: This Repo has unsecure code on purpose
+
+
 Se agredece aportes a seguridad en la infraestructura. Gracias
 
 ## En qué consiste
